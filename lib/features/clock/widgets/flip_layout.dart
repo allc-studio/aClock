@@ -182,15 +182,15 @@ class _FlipClockLayoutState extends State<FlipClockLayout> {
     final baseColor = theme.flipCardColor;
     final hsl = HSLColor.fromColor(baseColor);
 
-    // Gradients for depth — kept very subtle to avoid white band
+    // Gradients for depth
     final topColor =
-        hsl.withLightness((hsl.lightness + 0.04).clamp(0.0, 1.0)).toColor();
+        hsl.withLightness((hsl.lightness + 0.08).clamp(0.0, 1.0)).toColor();
     final midTopColor =
-        hsl.withLightness((hsl.lightness + 0.02).clamp(0.0, 1.0)).toColor();
+        hsl.withLightness((hsl.lightness + 0.04).clamp(0.0, 1.0)).toColor();
     final midBottomColor =
-        hsl.withLightness((hsl.lightness - 0.02).clamp(0.0, 1.0)).toColor();
+        hsl.withLightness((hsl.lightness - 0.04).clamp(0.0, 1.0)).toColor();
     final bottomColor =
-        hsl.withLightness((hsl.lightness - 0.06).clamp(0.0, 1.0)).toColor();
+        hsl.withLightness((hsl.lightness - 0.08).clamp(0.0, 1.0)).toColor();
 
     final visualKey = ValueKey(
         '$id-${theme.fontColor.toARGB32()}-${theme.flipCardColor.toARGB32()}-${header != null}');
@@ -231,11 +231,6 @@ class _FlipClockLayoutState extends State<FlipClockLayout> {
                 bottomColor.withValues(alpha: 242.25),
               ],
               stops: const [0.0, 0.25, 0.5, 0.75, 1.0],
-            ),
-            // Border with glassmorphism effect
-            border: Border.all(
-              color: Colors.white.withValues(alpha: 30.6),
-              width: 0.8,
             ),
           ),
           child: Stack(
